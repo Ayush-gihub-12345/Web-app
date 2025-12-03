@@ -4,37 +4,48 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>WebpageWale — Demo Websites</title>
-  <meta name="description" content="Explore live demo websites for clinics, coaching, gym, salon, shops and more by WebpageWale.">
-  <meta name="keywords" content="webpagewale, demos, clinic website, gym website, salon website, jabalpur website development">
+  <title>WebpageWale — Demos</title>
+  <meta name="description" content="WebpageWale demo websites: clinic, coaching, grocery, gym, salon and more templates for Jabalpur clients." />
+  <meta name="keywords" content="webpagewale demos, website demos, clinic demo, coaching demo, gym demo, salon demo" />
 
   <!-- Favicons -->
   <link href="../assets/img/favicon.png" rel="icon">
   <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS -->
+  <!-- Vendor CSS Files (same as project) -->
   <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Main CSS -->
+  <!-- Main CSS File (same path as your project) -->
   <link href="../assets/css/main.css" rel="stylesheet">
+  <style>
+  .demo-tile {
+    transition: .18s ease;
+    cursor: pointer;
+    border-left: 4px solid transparent;
+  }
+  .demo-tile:hover, .demo-tile:focus {
+    transform: translateY(-4px);
+    border-left-color: var(--bs-primary);
+    box-shadow: 0 8px 25px rgba(0,0,0,.08);
+    outline: none;
+  }
 
+</style>
 </head>
 
-<body>
+<body class="index-page">
 
-  <!-- Header -->
   <header id="header" class="header d-flex align-items-center sticky-top">
-    <div class="container-fluid container-xl d-flex align-items-center">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
       <a href="../index.html" class="logo d-flex align-items-center me-auto">
         <h1 class="sitename">WebpageWale</h1><span>.</span>
@@ -49,7 +60,7 @@
           <li><a href="demo.html" class="active">Demos</a></li>
           <li><a href="../pages/contact.html">Contact</a></li>
         </ul>
-        <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
       <a class="btn-getstarted" href="../pages/contact.html">Get Started</a>
@@ -59,178 +70,313 @@
 
   <main class="main">
 
-    <!-- Hero -->
-    <section class="hero section text-center py-5">
+    <!-- Demos Hero -->
+    <section id="hero" class="hero section">
       <div class="container">
-        <h2 data-aos="fade-up">Our Demo Websites</h2>
-        <p data-aos="fade-up" data-aos-delay="200">
-          Here's a collection of ready-made demo websites for popular business categories in tier-3 cities like Jabalpur.
-        </p>
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <h2 data-aos="fade-up" data-aos-delay="100">WebpageWale — Demo websites</h2>
+            <p data-aos="fade-up" data-aos-delay="200">Choose a demo layout below. We'll customise it for your business — clinics, coaching centres, shops, gyms and more.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Demo Cards -->
-    <section class="portfolio section py-5">
-      <div class="container">
+    <!-- Demo cards -->
+    <!-- Live Demos (interactive) -->
+<section id="demos-list" class="portfolio section">
+  <div class="container">
 
-        <div class="row gy-4">
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Live Demos</h2>
+      <p>Click a card to preview the demo. Pick the niche closest to your business and we'll tailor it.</p>
+    </div>
 
-          <!-- Clinic -->
-          <div class="col-lg-4 col-md-6">
-            <div class="card h-100 shadow-sm">
-              <img src="https://images.unsplash.com/photo-1580281658629-876a5f21d4c3?auto=format&w=1200" class="card-img-top" alt="Clinic Demo">
-              <div class="card-body">
-                <h5>Clinic Demo</h5>
-                <p>Perfect for doctors, clinics & diagnostics.</p>
-                <a href="../demo/clinic-demo.html" class="btn btn-primary btn-sm" target="_blank">Open Demo</a>
-              </div>
-            </div>
+    <!-- Search & Filter -->
+    <div class="row mb-3" data-aos="fade-up" data-aos-delay="50">
+      <div class="col-md-6 mb-2">
+        <input id="demo-search" class="form-control" placeholder="Search demos (e.g. 'gym', 'bakery')">
+      </div>
+      <div class="col-md-6 text-md-end">
+        <select id="demo-filter" class="form-select w-auto d-inline-block">
+          <option value="all">All niches</option>
+          <option value="clinic">Clinic</option>
+          <option value="coaching">Coaching</option>
+          <option value="grocery">Grocery</option>
+          <option value="business">Business</option>
+          <option value="gym">Gym</option>
+          <option value="salon">Salon</option>
+          <option value="restaurant">Restaurant</option>
+          <option value="dentist">Dentist</option>
+          <option value="mechanic">Mechanic</option>
+          <option value="photographer">Photographer</option>
+          <option value="bakery">Bakery</option>
+          <option value="tailor">Tailor</option>
+          <option value="event">Event</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Grid -->
+    <div class="row gy-4" id="demos-grid" data-aos="fade-up" data-aos-delay="100">
+
+      <!-- 1. Clinic -->
+      <div class="col-lg-4 col-md-6 demo-card" data-niche="clinic" data-title="Clinic Demo" data-desc="Doctor profiles, appointment form, contact & map. Great for small clinics." data-demo-url="../demos/clinic-demo.html">
+        <div class="card h-100 shadow-sm demo-tile p-3" tabindex="0">
+          <h5 class="fw-bold mb-1">Clinic Demo</h5>
+          <p class="text-muted small mb-3">Doctor profiles, appointment form, contact & map.</p>
+          <div class="d-flex gap-2">
+            <a href="../demos/clinic-demo.html" class="btn btn-primary btn-sm" target="_blank">Open Demo</a>
+            <a href="../pages/contact.html" class="btn btn-outline-secondary btn-sm">Request Custom</a>
           </div>
+        </div>
+      </div>
 
-          <!-- Coaching -->
-          <div class="col-lg-4 col-md-6">
-            <div class="card h-100 shadow-sm">
-              <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&w=1200" class="card-img-top" alt="Coaching Demo">
-              <div class="card-body">
-                <h5>Coaching / Institute Demo</h5>
-                <p>Best for coaching centres & training institutes.</p>
-                <a href="../demo/coaching-demo.html" class="btn btn-primary btn-sm" target="_blank">Open Demo</a>
-              </div>
-            </div>
+      <!-- 2. Coaching -->
+      <div class="col-lg-4 col-md-6 demo-card" data-niche="coaching" data-title="Coaching Demo" data-desc="Course lists, admission form and timetable — ideal for coaching centres." data-demo-url="../demos/coaching-demo.html">
+        <div class="card h-100 shadow-sm demo-tile p-3" tabindex="0">
+          <h5 class="fw-bold mb-1">Coaching Demo</h5>
+          <p class="text-muted small mb-3">Course lists, admission form and timetable.</p>
+          <div class="d-flex gap-2">
+            <a href="../demos/coaching-demo.html" class="btn btn-primary btn-sm" target="_blank">Open Demo</a>
+            <a href="../pages/contact.html" class="btn btn-outline-secondary btn-sm">Request Custom</a>
           </div>
+        </div>
+      </div>
 
-          <!-- Grocery -->
-          <div class="col-lg-4 col-md-6">
-            <div class="card h-100 shadow-sm">
-              <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&w=1200" class="card-img-top" alt="Grocery Demo">
-              <div class="card-body">
-                <h5>Grocery / Kirana Demo</h5>
-                <p>Simple listing + WhatsApp ordering.</p>
-                <a href="../demo/grocery-demo.html" class="btn btn-primary btn-sm" target="_blank">Open Demo</a>
-              </div>
-            </div>
+      <!-- 3. Grocery -->
+      <div class="col-lg-4 col-md-6 demo-card" data-niche="grocery" data-title="Grocery Demo" data-desc="Product listing, WhatsApp order and offers — perfect for groceries and small retailers." data-demo-url="../demos/grocery-demo.html">
+        <div class="card h-100 shadow-sm demo-tile p-3" tabindex="0">
+          <h5 class="fw-bold mb-1">Grocery Demo</h5>
+          <p class="text-muted small mb-3">Product listing, WhatsApp order and offers.</p>
+          <div class="d-flex gap-2">
+            <a href="../demos/grocery-demo.html" class="btn btn-primary btn-sm" target="_blank">Open Demo</a>
+            <a href="../pages/contact.html" class="btn btn-outline-secondary btn-sm">Request Custom</a>
           </div>
+        </div>
+      </div>
 
-          <!-- Business -->
-          <div class="col-lg-4 col-md-6">
-            <div class="card h-100 shadow-sm">
-              <img src="https://images.unsplash.com/photo-1556741533-f6acd647d2fb?auto=format&w=1200" class="card-img-top" alt="Business Demo">
-              <div class="card-body">
-                <h5>Local Business Demo</h5>
-                <p>Suitable for any local shop or service business.</p>
-                <a href="../demo/business-demo.html" class="btn btn-primary btn-sm" target="_blank">Open Demo</a>
-              </div>
-            </div>
+      <!-- 4. Business -->
+      <div class="col-lg-4 col-md-6 demo-card" data-niche="business" data-title="Business Demo" data-desc="Service pages, gallery and contact — great for local services and tradespeople." data-demo-url="../demos/business-demo.html">
+        <div class="card h-100 shadow-sm demo-tile p-3" tabindex="0">
+          <h5 class="fw-bold mb-1">Business Demo</h5>
+          <p class="text-muted small mb-3">Service pages, gallery and contact.</p>
+          <div class="d-flex gap-2">
+            <a href="../demos/business-demo.html" class="btn btn-primary btn-sm" target="_blank">Open Demo</a>
+            <a href="../pages/contact.html" class="btn btn-outline-secondary btn-sm">Request Custom</a>
           </div>
+        </div>
+      </div>
 
-          <!-- Gym -->
-          <div class="col-lg-4 col-md-6">
-            <div class="card h-100 shadow-sm">
-              <img src="https://images.unsplash.com/photo-1558611848-73f7eb4001a1?auto=format&w=1200" class="card-img-top" alt="Gym Demo">
-              <div class="card-body">
-                <h5>Gym / Fitness Demo</h5>
-                <p>Trainer profiles, schedule & memberships.</p>
-                <a href="../demo/gym-demo.html" class="btn btn-primary btn-sm" target="_blank">Open Demo</a>
-              </div>
-            </div>
+      <!-- 5. Gym -->
+      <div class="col-lg-4 col-md-6 demo-card" data-niche="gym" data-title="Gym / Fitness Demo" data-desc="Classes, trainer profiles, schedule and membership plans — ideal for local gyms." data-demo-url="../demos/gym-demo.html">
+        <div class="card h-100 shadow-sm demo-tile p-3" tabindex="0">
+          <h5 class="fw-bold mb-1">Gym / Fitness Demo</h5>
+          <p class="text-muted small mb-3">Classes, trainer profiles, schedule & membership plans.</p>
+          <div class="d-flex gap-2">
+            <a href="../demos/gym-demo.html" class="btn btn-primary btn-sm" target="_blank">Open Demo</a>
+            <a href="../pages/contact.html" class="btn btn-outline-secondary btn-sm">Request Custom</a>
           </div>
+        </div>
+      </div>
 
-          <!-- Salon -->
-          <div class="col-lg-4 col-md-6">
-            <div class="card h-100 shadow-sm">
-              <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&w=1200" class="card-img-top" alt="Salon Demo">
-              <div class="card-body">
-                <h5>Salon / Beauty Demo</h5>
-                <p>Menu, prices, gallery & booking.</p>
-                <a href="../demo/salon-demo.html" class="btn btn-primary btn-sm" target="_blank">Open Demo</a>
-              </div>
-            </div>
+      <!-- 6. Salon -->
+      <div class="col-lg-4 col-md-6 demo-card" data-niche="salon" data-title="Salon Demo" data-desc="Service menu, gallery, booking & offers — perfect for salons and beauty parlours." data-demo-url="../demos/salon-demo.html">
+        <div class="card h-100 shadow-sm demo-tile p-3" tabindex="0">
+          <h5 class="fw-bold mb-1">Salon Demo</h5>
+          <p class="text-muted small mb-3">Service menu, gallery, booking & offers.</p>
+          <div class="d-flex gap-2">
+            <a href="../demos/salon-demo.html" class="btn btn-primary btn-sm" target="_blank">Open Demo</a>
+            <a href="../pages/contact.html" class="btn btn-outline-secondary btn-sm">Request Custom</a>
           </div>
+        </div>
+      </div>
 
-          <!-- Restaurant -->
-          <div class="col-lg-4 col-md-6">
-            <div class="card h-100 shadow-sm">
-              <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&w=1200" class="card-img-top" alt="Restaurant Demo">
-              <div class="card-body">
-                <h5>Restaurant / Café Demo</h5>
-                <p>Menu + reservation + offers.</p>
-                <a href="../demo/restaurant-demo.html" class="btn btn-primary btn-sm" target="_blank">Open Demo</a>
-              </div>
-            </div>
+      <!-- 7. Restaurant -->
+      <div class="col-lg-4 col-md-6 demo-card" data-niche="restaurant" data-title="Restaurant / Cafe Demo" data-desc="Menu, offers, reservations and contact — great for eateries and cafes." data-demo-url="../demos/restaurant-demo.html">
+        <div class="card h-100 shadow-sm demo-tile p-3" tabindex="0">
+          <h5 class="fw-bold mb-1">Restaurant / Cafe Demo</h5>
+          <p class="text-muted small mb-3">Menu, offers, reservations & contact.</p>
+          <div class="d-flex gap-2">
+            <a href="../demos/restaurant-demo.html" class="btn btn-primary btn-sm" target="_blank">Open Demo</a>
+            <a href="../pages/contact.html" class="btn btn-outline-secondary btn-sm">Request Custom</a>
           </div>
+        </div>
+      </div>
 
-          <!-- Dentist -->
-          <div class="col-lg-4 col-md-6">
-            <div class="card h-100 shadow-sm">
-              <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&w=1200" class="card-img-top" alt="Dentist Demo">
-              <div class="card-body">
-                <h5>Dentist Demo</h5>
-                <p>Treatment list + booking.</p>
-                <a href="../demo/dentist-demo.html" class="btn btn-primary btn-sm" target="_blank">Open Demo</a>
-              </div>
-            </div>
+      <!-- 8. Dentist -->
+      <div class="col-lg-4 col-md-6 demo-card" data-niche="dentist" data-title="Dentist Demo" data-desc="Clinic info, treatments, appointment booking and contact details." data-demo-url="../demos/dentist-demo.html">
+        <div class="card h-100 shadow-sm demo-tile p-3" tabindex="0">
+          <h5 class="fw-bold mb-1">Dentist Demo</h5>
+          <p class="text-muted small mb-3">Clinic info, treatments & booking.</p>
+          <div class="d-flex gap-2">
+            <a href="../demos/dentist-demo.html" class="btn btn-primary btn-sm" target="_blank">Open Demo</a>
+            <a href="../pages/contact.html" class="btn btn-outline-secondary btn-sm">Request Custom</a>
           </div>
+        </div>
+      </div>
 
-          <!-- Mechanic -->
-          <div class="col-lg-4 col-md-6">
-            <div class="card h-100 shadow-sm">
-              <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&w=1200" class="card-img-top" alt="Mechanic Demo">
-              <div class="card-body">
-                <h5>Mechanic / Garage Demo</h5>
-                <p>Services + pickup request.</p>
-                <a href="../demo/mechanic-demo.html" class="btn btn-primary btn-sm" target="_blank">Open Demo</a>
-              </div>
-            </div>
+      <!-- 9. Mechanic -->
+      <div class="col-lg-4 col-md-6 demo-card" data-niche="mechanic" data-title="Mechanic / Garage Demo" data-desc="Services, pricing, contact & pickup request — suitable for local garages and mechanics." data-demo-url="../demos/mechanic-demo.html">
+        <div class="card h-100 shadow-sm demo-tile p-3" tabindex="0">
+          <h5 class="fw-bold mb-1">Mechanic / Garage Demo</h5>
+          <p class="text-muted small mb-3">Services, pricing, contact & pickup request.</p>
+          <div class="d-flex gap-2">
+            <a href="../demos/mechanic-demo.html" class="btn btn-primary btn-sm" target="_blank">Open Demo</a>
+            <a href="../pages/contact.html" class="btn btn-outline-secondary btn-sm">Request Custom</a>
           </div>
+        </div>
+      </div>
 
-          <!-- Photographer -->
-          <div class="col-lg-4 col-md-6">
-            <div class="card h-100 shadow-sm">
-              <img src="https://images.unsplash.com/photo-1519183071298-a2962be96c79?auto=format&w=1200" class="card-img-top" alt="Photographer Demo">
-              <div class="card-body">
-                <h5>Photographer Demo</h5>
-                <p>Gallery + packages.</p>
-                <a href="../demo/photographer-demo.html" class="btn btn-primary btn-sm" target="_blank">Open Demo</a>
-              </div>
-            </div>
+      <!-- 10. Photographer -->
+      <div class="col-lg-4 col-md-6 demo-card" data-niche="photographer" data-title="Photographer Demo" data-desc="Portfolio gallery, packages and booking — ideal for local photographers." data-demo-url="../demos/photographer-demo.html">
+        <div class="card h-100 shadow-sm demo-tile p-3" tabindex="0">
+          <h5 class="fw-bold mb-1">Photographer Demo</h5>
+          <p class="text-muted small mb-3">Portfolio gallery, packages & booking.</p>
+          <div class="d-flex gap-2">
+            <a href="../demos/photographer-demo.html" class="btn btn-primary btn-sm" target="_blank">Open Demo</a>
+            <a href="../pages/contact.html" class="btn btn-outline-secondary btn-sm">Request Custom</a>
           </div>
+        </div>
+      </div>
 
-          <!-- Bakery -->
-          <div class="col-lg-4 col-md-6">
-            <div class="card h-100 shadow-sm">
-              <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&w=1200" class="card-img-top" alt="Bakery Demo">
-              <div class="card-body">
-                <h5>Bakery / Sweets Demo</h5>
-                <p>Products + home delivery.</p>
-                <a href="../demo/bakery-demo.html" class="btn btn-primary btn-sm" target="_blank">Open Demo</a>
-              </div>
-            </div>
+      <!-- 11. Bakery -->
+      <div class="col-lg-4 col-md-6 demo-card" data-niche="bakery" data-title="Bakery / Sweets Demo" data-desc="Product showcase, offers and order flow for bakeries and sweet shops." data-demo-url="../demos/bakery-demo.html">
+        <div class="card h-100 shadow-sm demo-tile p-3" tabindex="0">
+          <h5 class="fw-bold mb-1">Bakery / Sweets Demo</h5>
+          <p class="text-muted small mb-3">Product showcase, offers & order flow.</p>
+          <div class="d-flex gap-2">
+            <a href="../demos/bakery-demo.html" class="btn btn-primary btn-sm" target="_blank">Open Demo</a>
+            <a href="../pages/contact.html" class="btn btn-outline-secondary btn-sm">Request Custom</a>
           </div>
+        </div>
+      </div>
 
-          <!-- Tailor -->
-          <div class="col-lg-4 col-md-6">
-            <div class="card h-100 shadow-sm">
-              <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&w=1200" class="card-img-top" alt="Tailor Demo">
-              <div class="card-body">
-                <h5>Tailor / Boutique Demo</h5>
-                <p>Portfolio + pricing.</p>
-                <a href="../demo/tailor-demo.html" class="btn btn-primary btn-sm" target="_blank">Open Demo</a>
-              </div>
-            </div>
+      <!-- 12. Tailor -->
+      <div class="col-lg-4 col-md-6 demo-card" data-niche="tailor" data-title="Tailor / Stitching Demo" data-desc="Service list, portfolio and contact for local tailors and boutiques." data-demo-url="../demos/tailor-demo.html">
+        <div class="card h-100 shadow-sm demo-tile p-3" tabindex="0">
+          <h5 class="fw-bold mb-1">Tailor / Stitching Demo</h5>
+          <p class="text-muted small mb-3">Service list, portfolio & contact.</p>
+          <div class="d-flex gap-2">
+            <a href="../demos/tailor-demo.html" class="btn btn-primary btn-sm" target="_blank">Open Demo</a>
+            <a href="../pages/contact.html" class="btn btn-outline-secondary btn-sm">Request Custom</a>
           </div>
+        </div>
+      </div>
 
-          <!-- Event Planner -->
-          <div class="col-lg-4 col-md-6">
-            <div class="card h-100 shadow-sm">
-              <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&w=1200" class="card-img-top" alt="Event Planner Demo">
-              <div class="card-body">
-                <h5>Event Planner Demo</h5>
-                <p>Events + gallery + inquiry.</p>
-                <a href="../demo/event-demo.html" class="btn btn-primary btn-sm" target="_blank">Open Demo</a>
-              </div>
-            </div>
+      <!-- 13. Event Planner -->
+      <div class="col-lg-4 col-md-6 demo-card" data-niche="event" data-title="Event Planner Demo" data-desc="Services, past events gallery and contact forms for event planners." data-demo-url="../demos/event-demo.html">
+        <div class="card h-100 shadow-sm demo-tile p-3" tabindex="0">
+          <h5 class="fw-bold mb-1">Event Planner Demo</h5>
+          <p class="text-muted small mb-3">Services, past events gallery & contact forms.</p>
+          <div class="d-flex gap-2">
+            <a href="../demos/event-demo.html" class="btn btn-primary btn-sm" target="_blank">Open Demo</a>
+            <a href="../pages/contact.html" class="btn btn-outline-secondary btn-sm">Request Custom</a>
           </div>
+        </div>
+      </div>
 
+    </div>
+  </div>
+
+  <!-- Text Modal -->
+  <div class="modal fade" id="demoPreviewModal" tabindex="-1">
+    <div class="modal-dialog modal-md modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 id="modalTitle" class="modal-title">Preview</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p id="modalDesc" class="text-muted"></p>
+        </div>
+        <div class="modal-footer">
+          <a id="modalOpenDemo" class="btn btn-primary" target="_blank">Open Demo</a>
+          <a href="../pages/contact.html" class="btn btn-outline-secondary">Request Custom</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Minimal styles for tilt & focus -->
+<style>
+  .demo-tile { transition: transform .18s ease, box-shadow .18s ease; cursor: pointer; }
+  .demo-tile:focus, .demo-tile:hover { transform: translateY(-6px) rotateX(1deg); box-shadow: 0 12px 30px rgba(0,0,0,.08); outline: none; }
+  .object-fit-cover { object-fit: cover; }
+</style>
+
+    <!-- Search & Filter -->
+
+  <!-- Text-only Modal -->
+  <div class="modal fade" id="demoPreviewModal" tabindex="-1">
+    <div class="modal-dialog modal-md modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 id="modalTitle" class="modal-title">Preview</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p id="modalDesc" class="text-muted"></p>
+        </div>
+        <div class="modal-footer">
+          <a id="modalOpenDemo" class="btn btn-primary" target="_blank">Open Demo</a>
+          <a href="../pages/contact.html" class="btn btn-outline-secondary">Request Custom</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<script>
+  (function () {
+    const cards = document.querySelectorAll('.demo-card');
+    const search = document.getElementById('demo-search');
+    const filter = document.getElementById('demo-filter');
+    const modal = new bootstrap.Modal(document.getElementById('demoPreviewModal'));
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalOpenDemo = document.getElementById('modalOpenDemo');
+
+    // Open modal
+    cards.forEach(card => {
+      card.addEventListener('click', () => open(card));
+      card.addEventListener('keypress', e => {
+        if (e.key === 'Enter' || e.key === ' ') open(card);
+      });
+    });
+
+    function open(card) {
+      modalTitle.textContent = card.dataset.title;
+      modalDesc.textContent = card.dataset.desc;
+      modalOpenDemo.href = card.dataset.demoUrl;
+      modal.show();
+    }
+
+    // Search & Filter
+    function apply() {
+      const q = search.value.toLowerCase();
+      const f = filter.value;
+      cards.forEach(c => {
+        const text = (c.dataset.title + c.dataset.desc).toLowerCase();
+        const matchText = text.includes(q);
+        const matchCat = (f === 'all' || c.dataset.niche === f);
+        c.style.display = matchText && matchCat ? '' : 'none';
+      });
+    }
+
+    search.addEventListener('input', apply);
+    filter.addEventListener('change', apply);
+  })();
+</script>
+
+
+        <div class="row mt-4">
+          <div class="col-12 text-center">
+            <a href="../pages/contact.html" class="btn btn-lg btn-outline-primary">Need a custom demo? Contact us</a>
+          </div>
         </div>
 
       </div>
@@ -238,43 +384,68 @@
 
   </main>
 
-  <!-- Footer -->
-  <footer id="footer" class="footer dark-background">
+  <footer id="footer" class="footer dark-background mt-5">
     <div class="container footer-top">
       <div class="row gy-4">
-
-        <div class="col-lg-4 footer-about">
+        <div class="col-lg-4 col-md-6 footer-about">
           <a href="../index.html" class="logo d-flex align-items-center">
             <span class="sitename">WebpageWale</span>
           </a>
-          <p>Affordable websites for every local business in Jabalpur.</p>
-          <p><strong>Phone:</strong> +91 9XXXXXXXXX</p>
-          <p><strong>Email:</strong> hello@webpagewale.in</p>
+          <div class="footer-contact pt-3">
+            <p>Jabalpur, Madhya Pradesh</p>
+            <p class="mt-3"><strong>Phone/WhatsApp:</strong> <span>+91 9XXXXXXXXX</span></p>
+            <p><strong>Email:</strong> <span>hello@webpagewale.in</span><span>webpagewale@gmail.com</span></p> 
+          </div>
         </div>
 
-        <div class="col-lg-2 footer-links">
-          <h4>Links</h4>
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Useful Links</h4>
           <ul>
             <li><a href="../index.html">Home</a></li>
+            <li><a href="../pages/about.html">About</a></li>
             <li><a href="../pages/services.html">Services</a></li>
             <li><a href="../pages/pricing.html">Pricing</a></li>
             <li><a href="../pages/contact.html">Contact</a></li>
           </ul>
         </div>
 
+        <div class="col-lg-6 col-md-12 footer-newsletter">
+          <h4>Our Newsletter</h4>
+          <p>Subscribe for occasional tips and updates from WebpageWale.</p>
+          <form action="../forms/newsletter.php" method="post" class="php-email-form">
+            <div class="newsletter-form d-flex">
+              <input type="email" name="email" class="form-control me-2" placeholder="Your email">
+              <input type="submit" value="Subscribe" class="btn btn-primary">
+            </div>
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Your subscription request has been sent. Thank you!</div>
+          </form>
+        </div>
+
       </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <strong class="px-1 sitename">WebpageWale</strong> All Rights Reserved</p>
+      <div class="credits">Designed by WebpageWale</div>
     </div>
   </footer>
 
-  <!-- Vendor JS -->
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files (paths align with your project root) -->
   <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/vendor/aos/aos.js"></script>
   <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="../assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
-  <!-- Main JS -->
+  <!-- Main JS File -->
   <script src="../assets/js/main.js"></script>
-
 </body>
 
 </html>
