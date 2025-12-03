@@ -26,7 +26,65 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <style>
+    .header {
+    background: linear-gradient(180deg, rgba(4,10,20,0.95) 0%, rgba(4,10,20,0.88) 100%);
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.4);
+  }
+  .header .container { display:flex; align-items:center; gap:12px; justify-content:space-between; }
+  .logo { display:flex; align-items:center; gap:8px; text-decoration:none; color: #fff; }
+  .logo .sitename { font-weight:700; font-size:1.6rem; letter-spacing: -0.2px; color:#fff; }
+  .logo span { color: var(--theme-color); font-weight:700; }
 
+  .navmenu ul { list-style:none; display:flex; gap:28px; margin:0; padding:0; align-items:center; }
+  .navmenu ul li a { color:#dfe9fb; text-decoration:none; font-weight:500; padding:8px 6px; transition: color .12s; }
+  .navmenu ul li a:hover { color: var(--theme-color); }
+  .navmenu ul li a.active { color: var(--theme-color); }
+  .mobile-nav-toggle { display:none; cursor:pointer; color:#cfe3fb; font-size:1.15rem; }
+
+  .btn-get-started {
+    display:inline-block;
+    padding:10px 16px;
+    border-radius:10px;
+    background: var(--theme-color);
+    color: var(--theme-contrast);
+    border: 1px solid var(--theme-color);
+    box-shadow: 0 8px 28px rgba(239,68,68,0.12);
+    text-decoration:none;
+    font-weight:600;
+  }
+
+  @media (max-width: 992px) {
+    .navmenu ul { display:none; }
+    .mobile-nav-toggle { display:inline-block; }
+    .header { padding:12px 0; }
+  }
+
+  /* HERO */
+  .hero { padding: 40px 0 36px; position: relative; overflow: visible; }
+  .hero-inner { display:flex; gap: 24px; align-items: center; justify-content: space-between; flex-wrap: wrap; position: relative; }
+  .hero-left { flex: 1 1 520px; min-width: 260px; z-index: 40; padding-right: 12px; }
+  .hero-right { flex: 0 0 var(--hero-max-image); min-width: 220px; max-width: var(--hero-max-image); position: relative; z-index: 10; display:flex; flex-direction:column; align-items:center; gap:12px; }
+
+  /* HERO RIGHT uses background-image to avoid overlap issues */
+  .hero-right .hero-bg {
+    width:100%;
+    max-width: var(--hero-max-image);
+    height: 240px;
+    border-radius: 14px;
+    background-image: url('assets/img/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 18px 48px rgba(2,6,23,0.6);
+    position: relative;
+    z-index: 8;
+    overflow: hidden;
+  }
+  </style>
   <!-- =======================================================
   * Template adapted for WebpageWale (Jabalpur)
   ======================================================== -->
@@ -34,33 +92,29 @@
 
 <body class="index-page">
 
-  <header id="header" class="header d-flex align-items-center sticky-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
-
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <!-- image logo can be used instead -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">WebpageWale</h1>
-        <span>.</span>
+  <header id="header" class="header">
+    <div class="container">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <h1 class="sitename">WebpageWale</h1><span>.</span>
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero" class="active">Home<br></a></li>
+          <li><a href="#hero" class="active">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
-          <li><a href="pages/demo.html">Demos</a></li>
+          <li><a href="#portfolio">Demos</a></li>
+          <li><a href="#pricing">Pricing</a></li>
           <li><a href="#team">Team</a></li>
-          <li><a href="blog.html">Blog</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="#about">Get Started</a>
-
+      <a class="btn-get-started" href="#contact" style="background-color: #e03a3c;" onclick="openContactWithSubject('Get Started enquiry')">Get Started</a>
     </div>
   </header>
+
 
   <main class="main">
 
@@ -202,7 +256,7 @@
           <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
             <i class="bi bi-emoji-smile"></i>
             <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="120" data-purecounter-duration="1" class="purecounter"></span>
+              <span data-purecounter-start="0" data-purecounter-end="4" data-purecounter-duration="1" class="purecounter"></span>
               <p>Happy Clients</p>
             </div>
           </div><!-- End Stats Item -->
@@ -210,7 +264,7 @@
           <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
             <i class="bi bi-journal-richtext"></i>
             <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="340" data-purecounter-duration="1" class="purecounter"></span>
+              <span data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="1" class="purecounter"></span>
               <p>Projects</p>
             </div>
           </div><!-- End Stats Item -->
@@ -218,7 +272,7 @@
           <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
             <i class="bi bi-headset"></i>
             <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="980" data-purecounter-duration="1" class="purecounter"></span>
+              <span data-purecounter-start="0" data-purecounter-end="120" data-purecounter-duration="1" class="purecounter"></span>
               <p>Hours Of Support</p>
             </div>
           </div><!-- End Stats Item -->
@@ -226,7 +280,7 @@
           <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
             <i class="bi bi-people"></i>
             <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="1" class="purecounter"></span>
+              <span data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="1" class="purecounter"></span>
               <p>Team Members</p>
             </div>
           </div><!-- End Stats Item -->
@@ -448,321 +502,186 @@
 
    
     <!-- Testimonials Section -->
+    <!-- Testimonials -->
     <section id="testimonials" class="testimonials section">
-
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Testimonials</h2>
-        <p>What our customers in Jabalpur say about WebpageWale</p>
-      </div><!-- End Section Title -->
-
+        <h2>What clients say</h2>
+      </div>
       <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="testimonial-item text-center">
+          <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img mb-2" alt="">
+          <h3>Ramesh — Shop owner, Jabalpur</h3>
+          <p style="color:#cfdff9"><i class="bi bi-quote quote-icon-left"></i> Good pricing and fast delivery — customers found my shop online after the site went live. <i class="bi bi-quote quote-icon-right"></i></p>
+        </div>
+      </div>
+    </section>
 
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 1,
-                  "spaceBetween": 40
-                },
-                "1200": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 10
-                }
-              }
-            }
-          </script>
-          <div class="swiper-wrapper">
 
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                <h3>Rohit Sharma</h3>
-                <h4>Clinic Owner, Jabalpur</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Quick, professional and affordable — WebpageWale delivered our clinic site in two days.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                <h3>Priya Verma</h3>
-                <h4>Coaching Owner</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Great support and clear pricing. Students and parents love the admission form.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                <h3>Ankit Patel</h3>
-                <h4>Shop Owner</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Easy setup and useful WhatsApp order flow — customers find us online now.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-          </div>
-          <div class="swiper-pagination"></div>
+    <!-- Pricing -->
+    <section id="pricing" class="pricing section section-bg dark-background">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Pricing</h2>
+          <p>Simple one-time prices — pay in three steps. Click "Choose" to open the contact form.</p>
         </div>
 
-      </div>
-
-    </section><!-- /Testimonials Section -->
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing section section-bg dark-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Pricing</h2>
-        <p>Simple packages for Jabalpur businesses — clear & affordable</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row g-4 g-lg-0">
-
+        <div class="row g-4">
+          <!-- Bronze -->
           <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
             <div class="pricing-item">
               <h3>Bronze</h3>
-              <h4><span>₹</span>3,999<span> one-time</span></h4>
+              <h4>₹2,999 <span style="font-size:.9rem;color:#b9c6d9">one-time</span></h4>
               <ul>
-                <li><i class="bi bi-check"></i> <span>4–6 page static site</span></li>
-                <li><i class="bi bi-check"></i> <span>Mobile-friendly</span></li>
-                <li><i class="bi bi-check"></i> <span>WhatsApp & Google Maps</span></li>
-                <li class="na"><i class="bi bi-x"></i> <span>Admin panel</span></li>
-                <li class="na"><i class="bi bi-x"></i> <span>E-commerce</span></li>
+                <li><i class="bi bi-check"></i> 4 pages (Home, About, Services, Contact)</li>
+                <li><i class="bi bi-check"></i> Mobile-friendly, contact & map</li>
+                <li><i class="bi bi-check"></i> WhatsApp button</li>
+                <li><i class="bi bi-check"></i> Basic SEO (title & meta)</li>
+                <li><i class="bi bi-check"></i> 7 days small fixes</li>
+                <li style="color:#f97373"><i class="bi bi-x"></i> Domain not included</li>
               </ul>
-              <div class="text-center"><a href="pricing.html" class="buy-btn">Choose Bronze</a></div>
+              <p class="price-note"><strong>Payment split:</strong> 30% advance, 40% on review, 30% on delivery.</p>
+              <div class="text-center"><button class="buy-btn btn-theme" onclick="openContactWithSubject('Bronze plan enquiry: ₹2,999')">Choose Bronze</button></div>
             </div>
-          </div><!-- End Pricing Item -->
+          </div>
 
+          <!-- Silver -->
           <div class="col-lg-4 featured" data-aos="zoom-in" data-aos-delay="200">
             <div class="pricing-item">
               <h3>Silver</h3>
-              <h4><span>₹</span>6,999<span> one-time</span></h4>
+              <h4>₹4,999 <span style="font-size:.9rem;color:#b9c6d9">one-time</span></h4>
               <ul>
-                <li><i class="bi bi-check"></i> <span>8–10 pages + gallery</span></li>
-                <li><i class="bi bi-check"></i> <span>SEO-ready</span></li>
-                <li><i class="bi bi-check"></i> <span>Contact & enquiry form</span></li>
-                <li><i class="bi bi-check"></i> <span>1-year hosting option</span></li>
-                <li class="na"><i class="bi bi-x"></i> <span>Advanced dashboards</span></li>
+                <li><i class="bi bi-check"></i> 6–8 pages + gallery</li>
+                <li><i class="bi bi-check"></i> Contact form & enquiry handling</li>
+                <li><i class="bi bi-check"></i> Image optimisation</li>
+                <li><i class="bi bi-check"></i> 1 month minor edits</li>
+                <li><i class="bi bi-check"></i> Domain included (setup help)</li>
               </ul>
-              <div class="text-center"><a href="pricing.html" class="buy-btn">Choose Silver</a></div>
+              <p class="price-note"><strong>Payment split:</strong> 30% advance, 40% on review, 30% on delivery.</p>
+              <div class="text-center"><button class="buy-btn btn-theme" onclick="openContactWithSubject('Silver plan enquiry: ₹4,999')">Choose Silver</button></div>
             </div>
-          </div><!-- End Pricing Item -->
+          </div>
 
-          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+          <!-- Gold -->
+          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
             <div class="pricing-item">
-              <h3>Gold (Dynamic)</h3>
-              <h4><span>₹</span>12,999<span>+</span></h4>
+              <h3>Gold (Dynamic / Upgradable)</h3>
+              <h4>₹11,999 <span style="font-size:.9rem;color:#b9c6d9">starting</span></h4>
               <ul>
-                <li><i class="bi bi-check"></i> <span>Dynamic site with admin</span></li>
-                <li><i class="bi bi-check"></i> <span>Database & forms</span></li>
-                <li><i class="bi bi-check"></i> <span>Payment / booking (optional)</span></li>
-                <li><i class="bi bi-check"></i> <span>Priority support</span></li>
-                <li><i class="bi bi-check"></i> <span>Custom features</span></li>
+                <li><i class="bi bi-check"></i> Dynamic pages or small admin panel</li>
+                <li><i class="bi bi-check"></i> Form handling & enquiries stored</li>
+                <li><i class="bi bi-check"></i> Booking/payment options (optional)</li>
+                <li><i class="bi bi-check"></i> Priority support (30 days)</li>
+                <li><i class="bi bi-check"></i> Domain included</li>
               </ul>
-              <div class="text-center"><a href="pricing.html" class="buy-btn">Contact for Gold</a></div>
+              <p class="price-note"><strong>On-demand support:</strong> available as paid add-on after delivery (hourly or monthly retainer — quoted separately).</p>
+              <p class="price-note"><strong>Payment split:</strong> 40% advance, 30% on review, 30% on delivery.</p>
+              <div class="text-center"><button class="buy-btn btn-theme" onclick="openContactWithSubject('Gold plan enquiry: ₹11,999')">Contact for Gold</button></div>
             </div>
-          </div><!-- End Pricing Item -->
-
+          </div>
         </div>
-
       </div>
+    </section>
 
-    </section><!-- /Pricing Section -->
 
-    <!-- Faq Section -->
+    <!-- FAQ -->
     <section id="faq" class="faq section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Frequently Asked Questions</h2>
-        <p>Answers to common questions from Jabalpur business owners</p>
-      </div><!-- End Section Title -->
-
       <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Frequently Asked Questions</h2>
+          <p>Short answers — clear and useful for local business owners.</p>
+        </div>
 
         <div class="row justify-content-center">
-
           <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
-
             <div class="faq-container">
-
               <div class="faq-item faq-active">
-                <h3>How long will my website take to deliver?</h3>
+                <h3>How long will my website be ready?<span class="faq-toggle">+</span></h3>
                 <div class="faq-content">
-                  <p>For a basic 4–6 page brochure site we typically deliver within 48 hours after receiving content and approval for the design.</p>
+                  <p>For a simple brochure site (4–6 pages) we usually finish in 2–5 days after you provide the content (text & images). More custom features take longer and we will share a timeline before starting.</p>
                 </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
+              </div>
               <div class="faq-item">
-                <h3>Will you help with images and copy?</h3>
+                <h3>Is domain registration included?<span class="faq-toggle">+</span></h3>
                 <div class="faq-content">
-                  <p>Yes — we offer basic copy and image suggestions. For detailed content creation we offer paid add-ons.</p>
+                  <p>Bronze plan: domain not included. Silver and Gold: we include help to register and configure the domain (domain cost charged separately if needed).</p>
                 </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
+              </div>
               <div class="faq-item">
-                <h3>Do you provide hosting and SSL?</h3>
+                <h3>How do payments work?<span class="faq-toggle">+</span></h3>
                 <div class="faq-content">
-                  <p>We offer a 1-year hosting option including SSL. Hosting renewal and maintenance are available as yearly plans.</p>
+                  <p>We take payments in three parts: Advance (to start), Mid (on review), Final (on delivery). We accept UPI, bank transfer and online payment options.</p>
                 </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
+              </div>
               <div class="faq-item">
-                <h3>Can I update my site later?</h3>
+                <h3>Can I update the site later myself?<span class="faq-toggle">+</span></h3>
                 <div class="faq-content">
-                  <p>Yes — for dynamic sites we provide an admin panel. For static sites we can update content on request (paid small updates).</p>
+                  <p>Most Bronze/Silver sites are static—small changes we can make quickly. For Gold (dynamic/admin) you can get an admin interface. We also offer paid update support.</p>
                 </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
+              </div>
               <div class="faq-item">
-                <h3>What payment methods do you accept?</h3>
+                <h3>Do you help with Google/online listing?<span class="faq-toggle">+</span></h3>
                 <div class="faq-content">
-                  <p>We accept UPI, bank transfer and online payments (Stripe/Razorpay) depending on your preference.</p>
+                  <p>Yes — basic help with Google Business Profile / local listing is available as an add-on or included as part of Silver/Gold services depending on the package.</p>
                 </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
-
+              </div>
+              <div class="faq-item">
+                <h3>What content do you need from me?<span class="faq-toggle">+</span></h3>
+                <div class="faq-content">
+                  <p>Business name, address (we will use Vijay Nagar, Jabalpur if confirmed), phone/WhatsApp, 3–6 images (we can suggest stock photos), list of services and any logo you have.</p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <h3>Do you create logos or photos?<span class="faq-toggle">+</span></h3>
+                <div class="faq-content">
+                  <p>Yes — we can create a simple logo and suggest stock images for a small fee. Complex branding is quoted separately.</p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <h3>Do I need to visit your office?<span class="faq-toggle">+</span></h3>
+                <div class="faq-content">
+                  <p>No — most work is remote. If you prefer an in-person meeting we can arrange one locally in Vijay Nagar, Jabalpur.</p>
+                </div>
+              </div>
             </div>
-
-          </div><!-- End Faq Column-->
-
+          </div>
         </div>
-
       </div>
+    </section>
 
-    </section><!-- /Faq Section -->
 
-    <!-- Team Section -->
+    <!-- Team -->
     <section id="team" class="team section section-bg dark-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Team</h2>
-        <p>Small, focus-driven team delivering websites for local businesses</p>
-      </div><!-- End Section Title -->
-
       <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Team</h2>
+          <p>Small, local and focused on fast delivery.</p>
+        </div>
 
         <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
+          <div class="col-lg-6 col-md-6 d-flex align-items-stretch">
+            <div class="team-member w-100 text-center p-3">
+              <div class="member-img mb-2"><img src="assets/img/team/team-1.jpg" class="img-fluid rounded-circle" alt="Ayush"></div>
               <div class="member-info">
-                <h4>Amit Kumar</h4>
-                <span>Founder</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Rahul Singh</h4>
+                <h4>Ayush</h4>
                 <span>Developer</span>
+                <p>Builds sites and implements custom features.</p>
               </div>
             </div>
-          </div><!-- End Team Member -->
+          </div>
 
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
+          <div class="col-lg-6 col-md-6 d-flex align-items-stretch">
+            <div class="team-member w-100 text-center p-3">
+              <div class="member-img mb-2"><img src="assets/img/team/team-2.jpg" class="img-fluid rounded-circle" alt="Mridul Gupta"></div>
               <div class="member-info">
-                <h4>Neha Patel</h4>
-                <span>Designer</span>
+                <h4>Mridul Gupta</h4>
+                <span>Project Manager & SEO Specialist</span>
+                <p>Coordinates projects and optimises sites for local search.</p>
               </div>
             </div>
-          </div><!-- End Team Member -->
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-            <div class="team-member">
-              <div class="member-img">
-                <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-              <div class="member-info">
-                <h4>Sanjay Verma</h4>
-                <span>Support</span>
-              </div>
-            </div>
-          </div><!-- End Team Member -->
-
+          </div>
         </div>
-
       </div>
-
-    </section><!-- /Team Section -->
+    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact section">
