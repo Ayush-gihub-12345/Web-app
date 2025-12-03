@@ -26,65 +26,7 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-  <style>
-    .header {
-    background: linear-gradient(180deg, rgba(4,10,20,0.95) 0%, rgba(4,10,20,0.88) 100%);
-    padding: 18px 0;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.4);
-  }
-  .header .container { display:flex; align-items:center; gap:12px; justify-content:space-between; }
-  .logo { display:flex; align-items:center; gap:8px; text-decoration:none; color: #fff; }
-  .logo .sitename { font-weight:700; font-size:1.6rem; letter-spacing: -0.2px; color:#fff; }
-  .logo span { color: var(--theme-color); font-weight:700; }
 
-  .navmenu ul { list-style:none; display:flex; gap:28px; margin:0; padding:0; align-items:center; }
-  .navmenu ul li a { color:#dfe9fb; text-decoration:none; font-weight:500; padding:8px 6px; transition: color .12s; }
-  .navmenu ul li a:hover { color: var(--theme-color); }
-  .navmenu ul li a.active { color: var(--theme-color); }
-  .mobile-nav-toggle { display:none; cursor:pointer; color:#cfe3fb; font-size:1.15rem; }
-
-  .btn-get-started {
-    display:inline-block;
-    padding:10px 16px;
-    border-radius:10px;
-    background: var(--theme-color);
-    color: var(--theme-contrast);
-    border: 1px solid var(--theme-color);
-    box-shadow: 0 8px 28px rgba(239,68,68,0.12);
-    text-decoration:none;
-    font-weight:600;
-  }
-
-  @media (max-width: 992px) {
-    .navmenu ul { display:none; }
-    .mobile-nav-toggle { display:inline-block; }
-    .header { padding:12px 0; }
-  }
-
-  /* HERO */
-  .hero { padding: 40px 0 36px; position: relative; overflow: visible; }
-  .hero-inner { display:flex; gap: 24px; align-items: center; justify-content: space-between; flex-wrap: wrap; position: relative; }
-  .hero-left { flex: 1 1 520px; min-width: 260px; z-index: 40; padding-right: 12px; }
-  .hero-right { flex: 0 0 var(--hero-max-image); min-width: 220px; max-width: var(--hero-max-image); position: relative; z-index: 10; display:flex; flex-direction:column; align-items:center; gap:12px; }
-
-  /* HERO RIGHT uses background-image to avoid overlap issues */
-  .hero-right .hero-bg {
-    width:100%;
-    max-width: var(--hero-max-image);
-    height: 240px;
-    border-radius: 14px;
-    background-image: url('assets/img/hero-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    box-shadow: 0 18px 48px rgba(2,6,23,0.6);
-    position: relative;
-    z-index: 8;
-    overflow: hidden;
-  }
-  </style>
   <!-- =======================================================
   * Template adapted for WebpageWale (Jabalpur)
   ======================================================== -->
@@ -92,29 +34,33 @@
 
 <body class="index-page">
 
-  <header id="header" class="header">
-    <div class="container">
-      <a href="index.html" class="logo d-flex align-items-center">
-        <h1 class="sitename">WebpageWale</h1><span>.</span>
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- image logo can be used instead -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">WebpageWale</h1>
+        <span>.</span>
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#hero" class="active">Home<br></a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Demos</a></li>
-          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="pages/demo.html">Demos</a></li>
           <li><a href="#team">Team</a></li>
+          <li><a href="blog.html">Blog</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-get-started" href="#contact" style="background-color: #e03a3c;" onclick="openContactWithSubject('Get Started enquiry')">Get Started</a>
+      <a class="btn-getstarted" href="#about">Get Started</a>
+
     </div>
   </header>
-
 
   <main class="main">
 
