@@ -1,757 +1,732 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>WebpageWale — Affordable Websites in Jabalpur</title>
-  <meta name="description" content="WebpageWale — Modern, affordable websites for businesses, clinics, coaching centers and shops in Jabalpur. Fast delivery, local support." />
+  <meta name="description" content="WebpageWale — Modern, affordable websites for businesses in Jabalpur. Fast delivery, local support." />
   <meta name="keywords" content="webpagewale, jabalpur website, affordable websites, clinic website, coaching website, small business website" />
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <!-- Preconnect & Fonts preload -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Raleway:wght@400;700&family=Poppins:wght@400;600&display=swap" as="style" onload="this.rel='stylesheet'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Raleway:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  </noscript>
 
-  <!-- Vendor CSS Files -->
+  <!-- Vendor CSS -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Main CSS File -->
+  <!-- Keep existing large CSS as-is -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template adapted for WebpageWale (Jabalpur)
-  ======================================================== -->
-</head>
+  <!-- Inline focused CSS overrides (contact, clients pagination, logos grey, pricing tweaks, FAQ) -->
+  <style>
+    :root {
+      --brand-accent: #e03a3c;
+      --card-bg: #ffffff;
+      --card-border: rgba(0,0,0,0.06);
+      --muted: rgba(0,0,0,0.55);
+    }
 
+    /* Buttons unified */
+    .btn, .btn-theme, .btn-getstarted, .buy-btn { background: var(--brand-accent) !important; color:#fff !important; border-color:var(--brand-accent) !important; }
+    .btn-outline-primary { background: transparent !important; color: var(--brand-accent) !important; border: 1px solid var(--brand-accent) !important; }
+    .btn-outline-primary:hover { background: color-mix(in srgb,var(--brand-accent), transparent 15%) !important; color:#fff !important; }
+
+    /* ===== CLIENTS: logos & pagination ===== */
+    .clients .swiper { padding: 8px 0; }
+    .clients .swiper-wrapper { display:flex; gap:20px; align-items:center; padding:6px 4px; }
+    .clients .swiper-slide { width:auto !important; flex:0 0 auto; display:flex; align-items:center; justify-content:center; }
+    .clients .swiper-slide img { height:44px; object-fit:contain; display:block; filter: grayscale(100%) brightness(.85); opacity:0.9; transition: transform .22s, opacity .22s, filter .22s; }
+    .clients .swiper-slide img:hover { transform: translateY(-4px); opacity:1; filter: grayscale(0%) brightness(1); }
+    /* pagination aligned right and styled grey with radius */
+    .clients .swiper-pagination { margin-top:10px; text-align:right; }
+    .clients .swiper-pagination .swiper-pagination-bullet {
+      background: #d6d6d6; width:11px; height:11px; opacity:1; border-radius:8px; border:1px solid rgba(0,0,0,0.04); margin-left:6px;
+    }
+    .clients .swiper-pagination .swiper-pagination-bullet-active { background: var(--brand-accent); transform: scale(1.05); }
+
+    /* ===== DEMO CARDS ===== */
+    .demo-cards { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:14px; }
+    .demo-cards .card { min-height:140px; display:flex; flex-direction:column; justify-content:space-between; padding:16px; border-radius:8px; border:1px solid var(--card-border); background:var(--card-bg); box-shadow:0 8px 20px rgba(0,0,0,0.04); }
+    .demo-cards .card h4 { margin:0 0 8px 0; font-size:18px; }
+    .demo-cards .card p { margin:0 0 12px 0; color: var(--muted); }
+
+    /* ===== SERVICES heading color, remove hover change ===== */
+    .services .service-item h4 { color: var(--brand-accent); font-weight:700; margin-bottom:6px; }
+    .services .service-item h4 a, .services .service-item h4 a:hover { color: var(--brand-accent); text-decoration:none; }
+
+    /* ===== PRICING: nicer cards & layout ===== */
+    .pricing .pricing-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:18px; }
+    .pricing .pricing-item { border-radius:12px; padding:20px; background:var(--card-bg); border:1px solid var(--card-border); box-shadow:0 14px 30px rgba(0,0,0,0.06); display:flex; flex-direction:column; justify-content:space-between; }
+    .pricing .pricing-item h3 { font-size:20px; margin:8px 0; }
+    .pricing .pricing-item h4 { font-size:34px; color:var(--brand-accent); margin-bottom:6px; font-weight:700; }
+    .pricing .pricing-item ul { list-style:none; padding:0; margin:10px 0; color: var(--muted); }
+    .pricing .pricing-item ul li { display:flex; gap:10px; padding:6px 0; align-items:flex-start; }
+    .pricing .badge { display:inline-block; padding:6px 10px; border-radius:6px; font-weight:700; font-size:12px; margin-bottom:8px; background: color-mix(in srgb,var(--brand-accent), transparent 90%); color:var(--brand-accent); }
+
+    /* ===== CONTACT: improved layout + styling ===== */
+    .formsubmit-form { display:flex; flex-direction:column; gap:10px; margin-top:6px; background: #fff; padding:14px; border-radius:10px; border:1px solid rgba(0,0,0,0.06); box-shadow: 0 8px 24px rgba(0,0,0,0.04); }
+    .formsubmit-form input[type="text"], .formsubmit-form input[type="email"], .formsubmit-form textarea {
+      padding:12px 14px; border-radius:8px; border:1px solid color-mix(in srgb,#000, transparent 88%); width:100%; font-size:15px;
+    }
+    .formsubmit-form input:focus, .formsubmit-form textarea:focus { outline: none; border-color: var(--brand-accent); box-shadow: 0 4px 18px rgba(224,58,60,0.08); }
+    .formsubmit-form textarea { min-height:120px; resize:vertical; }
+    .formsubmit-form button[type="submit"] { padding:10px 16px; border-radius:8px; font-weight:600; border:none; cursor:pointer; }
+    .formsubmit-form .small-note { font-size:13px; color: var(--muted); margin-top:6px; }
+
+    /* success & error messages */
+    .form-send-success, .form-send-error {
+      display:none; padding:10px 12px; border-radius:8px; font-weight:600; margin-top:8px;
+    }
+    .form-send-success { background: #059652; color:white; }
+    .form-send-error { background: #df1529; color:white; }
+
+    /* ===== FAQ tweaks ===== */
+    .faq .faq-container .faq-item h3 { cursor:pointer; }
+    .faq .faq-container .faq-item .faq-content p { color: var(--muted); }
+
+    /* responsive tweaks */
+    @media (max-width: 767px){
+      .clients .swiper-wrapper { gap:14px; }
+      .demo-cards .card { min-height:160px; }
+      .pricing .pricing-item h4 { font-size:28px; }
+      .clients .swiper-pagination { text-align:center; } /* pager center on small screens */
+    }
+  </style>
+</head>
 <body class="index-page">
 
+  <!-- Header -->
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
-
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <!-- image logo can be used instead -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">WebpageWale</h1>
-        <span>.</span>
+      <a href="#hero" class="logo d-flex align-items-center me-auto" aria-label="WebpageWale home">
+        <h1 class="sitename">WebpageWale</h1><span class="accent">.</span>
       </a>
 
-      <nav id="navmenu" class="navmenu">
+      <nav id="navmenu" class="navmenu" aria-label="Primary navigation">
         <ul>
-          <li><a href="#hero" class="active">Home<br></a></li>
+          <li><a href="#hero" class="active">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
-          <li><a href="pages/demo.html">Demos</a></li>
+          <li><a href="#demos">Demos</a></li>
           <li><a href="#team">Team</a></li>
-          <li><a href="blog.html">Blog</a></li>
+          <li><a href="#faq">FAQ</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        <button class="mobile-nav-toggle d-xl-none bi bi-list" aria-controls="navmenu" aria-expanded="false" aria-label="Toggle navigation"></button>
       </nav>
 
       <a class="btn-getstarted" href="#about">Get Started</a>
-
     </div>
   </header>
 
   <main class="main">
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero section">
-
-      <img src="assets/img/hero-bg.jpg" alt="WebpageWale hero" data-aos="fade-in">
-
+    <!-- Hero -->
+    <section id="hero" class="hero section" aria-label="Hero">
+      <img id="hero-bg" src="assets/img/hero-bg.jpg" alt="WebpageWale hero" data-aos="fade-in" loading="eager" decoding="async">
       <div class="container">
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-lg-7">
             <h2 data-aos="fade-up" data-aos-delay="100">Affordable websites for local businesses in Jabalpur</h2>
-            <p data-aos="fade-up" data-aos-delay="200">WebpageWale builds fast, mobile-first brochure and small-business websites — clinics, shops, coaching centres and colleges. Modern designs, local support, and quick delivery.</p>
+            <p data-aos="fade-up" data-aos-delay="200">WebpageWale builds fast, mobile-first brochure and small-business websites — clinics, shops, coaching centres and colleges. Modern designs, local support and sensible pricing tailored for Jabalpur business owners.</p>
             <div class="d-flex mt-4" data-aos="fade-up" data-aos-delay="300">
-              <a href="#about" class="btn-get-started">Get Started</a>
-              <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Intro</span></a>
+              <a href="#about" class="btn-get-started btn">Get Started</a>
+              <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn-watch-video d-flex align-items-center btn" aria-label="Watch Intro"><i class="bi bi-play-circle"></i><span>Watch Intro</span></a>
             </div>
           </div>
-        </div>
-      </div>
-
-    </section><!-- /Hero Section -->
-
-    <!-- Clients Section -->
-    <section id="clients" class="clients section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 2,
-                  "spaceBetween": 40
-                },
-                "480": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 60
-                },
-                "640": {
-                  "slidesPerView": 4,
-                  "spaceBetween": 80
-                },
-                "992": {
-                  "slidesPerView": 6,
-                  "spaceBetween": 120
-                }
-              }
-            }
-          </script>
-          <div class="swiper-wrapper align-items-center">
-            <!-- Replace these with local client logos/screenshots -->
-            <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid" alt="client"></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid" alt="client"></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid" alt="client"></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid" alt="client"></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid" alt="client"></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid" alt="client"></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid" alt="client"></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid" alt="client"></div>
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-
-    </section><!-- /Clients Section -->
-
-    <!-- About Section -->
-    <section id="about" class="about section section-bg dark-background">
-
-      <div class="container position-relative">
-
-        <div class="row gy-5">
-
-          <div class="content col-xl-5 d-flex flex-column" data-aos="fade-up" data-aos-delay="100">
-            <h3>WebpageWale — Local web agency for Jabalpur</h3>
-            <p>
-              We design and build clean, fast websites for small businesses and institutions in Jabalpur. Our goal is to make professional web presence affordable, easy and fast — with local support.
-            </p>
-            <a href="about.html" class="about-btn align-self-center align-self-xl-start"><span>About us</span> <i class="bi bi-chevron-right"></i></a>
-          </div>
-
-          <div class="col-xl-7" data-aos="fade-up" data-aos-delay="200">
-            <div class="row gy-4">
-
-              <div class="col-md-6 icon-box position-relative">
-                <i class="bi bi-briefcase"></i>
-                <h4><a href="" class="stretched-link">Affordable Packages</a></h4>
-                <p>Clear pricing with low-cost static sites most businesses prefer — fast turnaround and sensible support options.</p>
-              </div><!-- Icon-Box -->
-
-              <div class="col-md-6 icon-box position-relative">
-                <i class="bi bi-gem"></i>
-                <h4><a href="" class="stretched-link">Modern Design</a></h4>
-                <p>Contemporary, mobile-first templates that look great on phones and desktops — optimized for speed.</p>
-              </div><!-- Icon-Box -->
-
-              <div class="col-md-6 icon-box position-relative">
-                <i class="bi bi-broadcast"></i>
-                <h4><a href="" class="stretched-link">Local Support</a></h4>
-                <p>We provide local assistance in Jabalpur — quick updates and on-call help when you need it.</p>
-              </div><!-- Icon-Box -->
-
-              <div class="col-md-6 icon-box position-relative">
-                <i class="bi bi-easel"></i>
-                <h4><a href="" class="stretched-link">Easy Content</a></h4>
-                <p>We help with copy and images so your website is ready to publish without extra effort.</p>
-              </div><!-- Icon-Box -->
-
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section><!-- /About Section -->
-
-    <!-- Stats Section -->
-    <section id="stats" class="stats section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
-            <i class="bi bi-emoji-smile"></i>
-            <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="4" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Happy Clients</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
-            <i class="bi bi-journal-richtext"></i>
-            <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Projects</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
-            <i class="bi bi-headset"></i>
-            <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="120" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Hours Of Support</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
-            <i class="bi bi-people"></i>
-            <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Team Members</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Stats Section -->
-
-    <!-- Tabs Section -->
-    <section id="tabs" class="tabs section">
-
-      <div class="container">
-
-        <ul class="nav nav-tabs row  d-flex" data-aos="fade-up" data-aos-delay="100">
-          <li class="nav-item col-3">
-            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#tabs-tab-1">
-              <i class="bi bi-binoculars"></i>
-              <h4 class="d-none d-lg-block">Fast Delivery</h4>
-            </a>
-          </li>
-          <li class="nav-item col-3">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tabs-tab-2">
-              <i class="bi bi-box-seam"></i>
-              <h4 class="d-none d-lg-block">Local Support</h4>
-            </a>
-          </li>
-          <li class="nav-item col-3">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tabs-tab-3">
-              <i class="bi bi-brightness-high"></i>
-              <h4 class="d-none d-lg-block">Optimized Speed</h4>
-            </a>
-          </li>
-          <li class="nav-item col-3">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tabs-tab-4">
-              <i class="bi bi-command"></i>
-              <h4 class="d-none d-lg-block">Affordable Pricing</h4>
-            </a>
-          </li>
-        </ul><!-- End Tab Nav -->
-
-        <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="tab-pane fade active show" id="tabs-tab-1">
-            <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                <h3>Quick turnaround for brochure sites</h3>
-                <p class="fst-italic">
-                  For simple 4–6 page business sites we typically deliver within 48 hours after receiving content.
-                </p>
-                <ul>
-                  <li><i class="bi bi-check2-all"></i>
-                    <span>Ready templates tailored for clinics, shops and coaching centres.</span>
-                  </li>
-                  <li><i class="bi bi-check2-all"></i> <span>Mobile-first, optimized images and fast hosting.</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>One free revision included.</span></li>
-                </ul>
-                <p>
-                  Our process is simple: pick a demo, share your details, and we deliver a polished website ready to share with customers.
-                </p>
-              </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="assets/img/working-1.jpg" alt="workflow" class="img-fluid">
-              </div>
-            </div>
-          </div><!-- End Tab Content Item -->
-
-          <div class="tab-pane fade" id="tabs-tab-2">
-            <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                <h3>On-ground support in Jabalpur</h3>
-                <p>
-                  We provide local assistance for updates, training and minor edits — ideal for business owners who want hands-on support.
-                </p>
-                <p class="fst-italic">
-                  Add simple maintenance plans for worry-free ownership.
-                </p>
-                <ul>
-                  <li><i class="bi bi-check2-all"></i> <span>Phone & WhatsApp support</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Fast content updates</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Optional yearly hosting & maintenance</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="assets/img/working-2.jpg" alt="support" class="img-fluid">
-              </div>
-            </div>
-          </div><!-- End Tab Content Item -->
-
-          <div class="tab-pane fade" id="tabs-tab-3">
-            <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                <h3>Performance-focused websites</h3>
-                <p>
-                  We optimize images, use lightweight templates and recommend hosting that keeps your pages fast for visitors.
-                </p>
-                <ul>
-                  <li><i class="bi bi-check2-all"></i> <span>Optimized images & lazy loading</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Clean CSS & minimal JS</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>CDN-ready deployment (Cloudflare Pages)</span></li>
-                </ul>
-                <p class="fst-italic">
-                  Speed matters for customer trust — we deliver sites that load quickly on mobile networks.
-                </p>
-              </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="assets/img/working-3.jpg" alt="performance" class="img-fluid">
-              </div>
-            </div>
-          </div><!-- End Tab Content Item -->
-
-          <div class="tab-pane fade" id="tabs-tab-4">
-            <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                <h3>Simple, transparent pricing</h3>
-                <p>
-                  Our core offer is low-cost static websites for local businesses with optional upgrades for dynamic features.
-                </p>
-                <p class="fst-italic">
-                  No hidden fees — choose the plan that fits your needs.
-                </p>
-                <ul>
-                  <li><i class="bi bi-check2-all"></i> <span>Bronze, Silver, Gold packages</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Domain & hosting assistance</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Maintenance as optional yearly plan</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="assets/img/working-4.jpg" alt="pricing" class="img-fluid">
-              </div>
-            </div>
-          </div><!-- End Tab Content Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Tabs Section -->
-
-    <!-- Services Section -->
-    <section id="services" class="services section section-bg dark-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-        <p>WebpageWale offers the web essentials local businesses need — fast and affordable.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item d-flex position-relative h-100">
-              <i class="bi bi-briefcase icon flex-shrink-0"></i>
-              <div>
-                <h4 class="title"><a href="service-details.html" class="stretched-link">Business Website</a></h4>
-                <p class="description">4–6 page brochure sites for shops, salons, cafes and local services with WhatsApp and Google Maps.</p>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item d-flex position-relative h-100">
-              <i class="bi bi-card-checklist icon flex-shrink-0"></i>
-              <div>
-                <h4 class="title"><a href="service-details.html" class="stretched-link">Clinic & Medical Sites</a></h4>
-                <p class="description">Doctor profiles, appointment forms and contact pages tailored for clinics and small hospitals.</p>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item d-flex position-relative h-100">
-              <i class="bi bi-bar-chart icon flex-shrink-0"></i>
-              <div>
-                <h4 class="title"><a href="service-details.html" class="stretched-link">Coaching & College Pages</a></h4>
-                <p class="description">Admission pages, course listings and event pages for coaching centres and small colleges.</p>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item d-flex position-relative h-100">
-              <i class="bi bi-binoculars icon flex-shrink-0"></i>
-              <div>
-                <h4 class="title"><a href="service-details.html" class="stretched-link">Shop / Grocery Catalog</a></h4>
-                <p class="description">Simple product listings and WhatsApp order flows for local grocery and retail stores.</p>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="service-item d-flex position-relative h-100">
-              <i class="bi bi-brightness-high icon flex-shrink-0"></i>
-              <div>
-                <h4 class="title"><a href="service-details.html" class="stretched-link">E-commerce (Basic)</a></h4>
-                <p class="description">Small online shops with payment integration — ideal for local businesses moving online.</p>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="service-item d-flex position-relative h-100">
-              <i class="bi bi-calendar4-week icon flex-shrink-0"></i>
-              <div>
-                <h4 class="title"><a href="service-details.html" class="stretched-link">Maintenance & Hosting</a></h4>
-                <p class="description">Yearly hosting, SSL and small update packages to keep your site running smoothly.</p>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Services Section -->
-
-   
-    <!-- Testimonials Section -->
-    <!-- Testimonials -->
-    <section id="testimonials" class="testimonials section">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>What clients say</h2>
-      </div>
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="testimonial-item text-center">
-          <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img mb-2" alt="">
-          <h3>Ramesh — Shop owner, Jabalpur</h3>
-          <p style="color:#cfdff9"><i class="bi bi-quote quote-icon-left"></i> Good pricing and fast delivery — customers found my shop online after the site went live. <i class="bi bi-quote quote-icon-right"></i></p>
         </div>
       </div>
     </section>
 
+    <!-- Clients -->
+    <section id="clients" class="clients section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="swiper init-swiper" aria-label="Clients carousel">
+          <script type="application/json" class="swiper-config">
+            {"loop":true,"speed":700,"autoplay":{"delay":2800,"disableOnInteraction":false},"slidesPerView":"auto","spaceBetween":24,"pagination":{"el":".swiper-pagination","clickable":true},"breakpoints":{"320":{"slidesPerView":2},"480":{"slidesPerView":3},"768":{"slidesPerView":4},"992":{"slidesPerView":6}}}
+          </script>
 
-    <!-- Pricing -->
+          <div class="swiper-wrapper align-items-center">
+            <div class="swiper-slide"><img src="assets/img/clients/client-1.png" alt="client 1" loading="lazy"></div>
+            <div class="swiper-slide"><img src="assets/img/clients/client-2.png" alt="client 2" loading="lazy"></div>
+            <div class="swiper-slide"><img src="assets/img/clients/client-3.png" alt="client 3" loading="lazy"></div>
+            <div class="swiper-slide"><img src="assets/img/clients/client-4.png" alt="client 4" loading="lazy"></div>
+            <div class="swiper-slide"><img src="assets/img/clients/client-8.png" alt="client 5" loading="lazy"></div>
+            <div class="swiper-slide"><img src="assets/img/clients/name.jfif" alt="client 6" loading="lazy"></div>
+          </div>
+
+          <div class="swiper-pagination" role="navigation" aria-label="Clients pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <!-- About Section (expanded with feature cards) -->
+<section id="about" class="about section section-bg dark-background" aria-labelledby="about-heading">
+  <div class="container position-relative">
+    <div class="row gy-5 align-items-center">
+
+      <!-- Left: headline, intro, bullets, CTA -->
+      <div class="content col-xl-6 d-flex flex-column" data-aos="fade-up" data-aos-delay="100">
+        <h3 id="about-heading">WebpageWale — Local web agency for Jabalpur</h3>
+        <p class="lead" style="max-width:680px;">
+          Affordable, fast and local. We specialise in clean, mobile-first brochure websites for shops, clinics,
+          coaching centres and colleges — delivered quickly with local support in Jabalpur. Our sites are built to
+          convert visitors into customers with sensible on-site SEO and minimal maintenance costs.
+        </p>
+
+        <ul style="margin-top:16px; margin-bottom:18px; max-width:680px;">
+          <li>Quick turnaround — typical 2–5 days for a 4–6 page brochure site</li>
+          <li>Mobile-first templates, optimized images and fast hosting suggestions</li>
+          <li>Local support: quick updates, WhatsApp help and optional yearly maintenance</li>
+        </ul>
+
+        <div class="d-flex gap-3">
+          <a href="about.html" class="about-btn align-self-start btn" style="padding:10px 26px;border-radius:40px;">
+            <span>ABOUT US</span> <i class="bi bi-chevron-right"></i>
+          </a>
+          <a href="#demos" class="btn btn-outline-primary align-self-start" style="padding:10px 22px;border-radius:40px;">
+            View Demos
+          </a>
+        </div>
+
+        <!-- Quick trust row -->
+        <div class="d-flex gap-3 mt-4 flex-wrap" style="align-items:center;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <i class="bi bi-award" style="font-size:20px;color:#e03a3c;"></i>
+            <div><strong>Local support</strong><div style="font-size:13px;color:rgba(255,255,255,0.7)">In-person help available</div></div>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:8px;">
+            <i class="bi bi-lightning-charge" style="font-size:20px;color:#e03a3c;"></i>
+            <div><strong>Fast delivery</strong><div style="font-size:13px;color:rgba(255,255,255,0.7)">Ready sites in days</div></div>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:8px;">
+            <i class="bi bi-shield-check" style="font-size:20px;color:#e03a3c;"></i>
+            <div><strong>Transparent pricing</strong><div style="font-size:13px;color:rgba(255,255,255,0.7)">No hidden fees</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: feature cards grid -->
+      <div class="col-xl-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="row g-3">
+
+          <!-- Card 1 -->
+          <div class="col-sm-6">
+            <article class="icon-card p-3 h-100 d-flex flex-column" style="border-radius:10px;background:var(--surface-color);border:1px solid color-mix(in srgb,var(--default-color), transparent 92%);">
+              <div class="d-flex align-items-start gap-3">
+                <i class="bi bi-briefcase" style="font-size:26px;color:var(--accent-color);"></i>
+                <div>
+                  <h4 style="margin:0;font-size:16px;">Business Website</h4>
+                  <p style="margin:6px 0 0 0;color:color-mix(in srgb,var(--default-color), transparent 50%);font-size:13px;">
+                    Clean 4–6 page brochure site: contact, map, WhatsApp button and basic SEO.
+                  </p>
+                </div>
+              </div>
+              <div class="mt-auto pt-2">
+                <a href="pages/demo-business.html" class="stretched-link" aria-label="Open Business demo">Live demo →</a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="col-sm-6">
+            <article class="icon-card p-3 h-100 d-flex flex-column" style="border-radius:10px;background:var(--surface-color);border:1px solid color-mix(in srgb,var(--default-color), transparent 92%);">
+              <div class="d-flex align-items-start gap-3">
+                <i class="bi bi-heart-pulse" style="font-size:26px;color:var(--accent-color);"></i>
+                <div>
+                  <h4 style="margin:0;font-size:16px;">Clinic & Medical</h4>
+                  <p style="margin:6px 0 0 0;color:color-mix(in srgb,var(--default-color), transparent 50%);font-size:13px;">
+                    Doctor profiles, appointment forms and service pages tailored to clinics.
+                  </p>
+                </div>
+              </div>
+              <div class="mt-auto pt-2">
+                <a href="pages/demo-clinic.html" class="stretched-link" aria-label="Open Clinic demo">Live demo →</a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="col-sm-6">
+            <article class="icon-card p-3 h-100 d-flex flex-column" style="border-radius:10px;background:var(--surface-color);border:1px solid color-mix(in srgb,var(--default-color), transparent 92%);">
+              <div class="d-flex align-items-start gap-3">
+                <i class="bi bi-journal" style="font-size:26px;color:var(--accent-color);"></i>
+                <div>
+                  <h4 style="margin:0;font-size:16px;">Coaching & College</h4>
+                  <p style="margin:6px 0 0 0;color:color-mix(in srgb,var(--default-color), transparent 50%);font-size:13px;">
+                    Admission pages, course listings and event schedules ready to go.
+                  </p>
+                </div>
+              </div>
+              <div class="mt-auto pt-2">
+                <a href="pages/demo-coaching.html" class="stretched-link" aria-label="Open Coaching demo">Live demo →</a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="col-sm-6">
+            <article class="icon-card p-3 h-100 d-flex flex-column" style="border-radius:10px;background:var(--surface-color);border:1px solid color-mix(in srgb,var(--default-color), transparent 92%);">
+              <div class="d-flex align-items-start gap-3">
+                <i class="bi bi-shop" style="font-size:26px;color:var(--accent-color);"></i>
+                <div>
+                  <h4 style="margin:0;font-size:16px;">Shop / Small e-commerce</h4>
+                  <p style="margin:6px 0 0 0;color:color-mix(in srgb,var(--default-color), transparent 50%);font-size:13px;">
+                    Catalog or simple shop with WhatsApp ordering — quick setup for local stores.
+                  </p>
+                </div>
+              </div>
+              <div class="mt-auto pt-2">
+                <a href="pages/about.html" class="stretched-link" aria-label="Open Shop demo">Live demo →</a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Optional card 5 -->
+          <div class="col-12 mt-2">
+            <article class="p-3" style="border-radius:10px;background:transparent;border:0;color: rgba(255,255,255,0.75);font-size:14px;">
+              <strong>Custom Work & Upgrades:</strong> Need custom features or a small admin panel? Choose the Gold plan or contact us for a quote — we’ll include a clear timeline and pricing.
+            </article>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- /About Section (expanded with feature cards) -->
+
+
+    <!-- Services -->
+    <section id="services" class="services section section-bg">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Services</h2>
+        <p>Essentials small businesses need — fast, local and affordable.</p>
+      </div>
+
+      <div class="container" data-aos="fade-up">
+        <div class="row gy-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="service-item d-flex h-100 p-3">
+              <div>
+                <h4>Business Website</h4>
+                <p>4–6 page brochure site with contact & map — quick launch.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="service-item d-flex h-100 p-3">
+              <div>
+                <h4>Clinic & Medical Sites</h4>
+                <p>Doctor profile, appointment form & contact pages.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="service-item d-flex h-100 p-3">
+              <div>
+                <h4>Coaching & College Pages</h4>
+                <p>Admission pages, course listings and events pages.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="service-item d-flex h-100 p-3">
+              <div>
+                <h4>Basic E-commerce</h4>
+                <p>Small shop starter with payment options & ordering flow.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="service-item d-flex h-100 p-3">
+              <div>
+                <h4>Maintenance & Hosting</h4>
+                <p>SSL, yearly hosting options and update packages.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Demos -->
+    <section id="demos" class="section">
+      <div class="container section-title">
+        <h2>Live Demos</h2>
+        <p>Pick a template and request a tailored website quickly.</p>
+      </div>
+
+      <div class="container" data-aos="fade-up">
+        <div class="demo-cards">
+          <article class="card p-3">
+            <div><h4>Clinic / Doctor</h4><p>Appointment + contact layout</p></div>
+            <div class="card-actions"><a class="btn btn-outline-primary" href="pages/demo-clinic.html" target="_blank" rel="noopener">Live demo</a></div>
+          </article>
+
+          <article class="card p-3">
+            <div><h4>Shop / Retail</h4><p>Catalog + ordering flow</p></div>
+            <div class="card-actions"><a class="btn btn-outline-primary" href="pages/pages/about.html" target="_blank" rel="noopener">Live demo</a></div>
+          </article>
+
+          <article class="card p-3">
+            <div><h4>Coaching / College</h4><p>Course & admission pages</p></div>
+            <div class="card-actions"><a class="btn btn-outline-primary" href="pages/demo-coaching.html" target="_blank" rel="noopener">Live demo</a></div>
+          </article>
+
+          <article class="card p-3">
+            <div><h4>Salon / Service</h4><p>Services & booking flow</p></div>
+            <div class="card-actions"><a class="btn btn-outline-primary" href="pages/demo-salon.html" target="_blank" rel="noopener">Live demo</a></div>
+          </article>
+
+          <article class="card p-3">
+            <div><h4>Basic E-commerce</h4><p>Small shop starter layout</p></div>
+            <div class="card-actions"><a class="btn btn-outline-primary" href="pages/demo-ecom.html" target="_blank" rel="noopener">Live demo</a></div>
+          </article>
+
+          <article class="card p-3">
+            <div><h4>Portfolio / Company</h4><p>Corporate brochure layout</p></div>
+            <div class="card-actions"><a class="btn btn-outline-primary" href="pages/demo-portfolio.html" target="_blank" rel="noopener">Live demo</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing (improved, clearer) -->
     <section id="pricing" class="pricing section section-bg dark-background">
       <div class="container">
         <div class="section-title" data-aos="fade-up">
           <h2>Pricing</h2>
-          <p>Simple one-time prices — pay in three steps. Click "Choose" to open the contact form.</p>
+          <p>Simple one-time prices — transparent and straightforward. Click "Choose" to prefill the contact quote.</p>
         </div>
 
-        <div class="row g-4">
+        <div class="pricing-grid" data-aos="fade-up">
           <!-- Bronze -->
-          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
-            <div class="pricing-item">
+          <div class="pricing-item">
+            <div>
+              <div class="badge">Popular</div>
               <h3>Bronze</h3>
               <h4>₹2,999 <span style="font-size:.9rem;color:#b9c6d9">one-time</span></h4>
               <ul>
-                <li><i class="bi bi-check"></i> 4 pages (Home, About, Services, Contact)</li>
-                <li><i class="bi bi-check"></i> Mobile-friendly, contact & map</li>
-                <li><i class="bi bi-check"></i> WhatsApp button</li>
-                <li><i class="bi bi-check"></i> Basic SEO (title & meta)</li>
-                <li><i class="bi bi-check"></i> 7 days small fixes</li>
-                <li style="color:#f97373"><i class="bi bi-x"></i> Domain not included</li>
+                <li><i class="bi bi-check2"></i> 4 pages (Home, About, Services, Contact)</li>
+                <li><i class="bi bi-check2"></i> Mobile-friendly, contact & map</li>
+                <li><i class="bi bi-check2"></i> WhatsApp & quick contact setup</li>
+                <li><i class="bi bi-check2"></i> Basic SEO: title & meta</li>
               </ul>
-              <p class="price-note"><strong>Payment split:</strong> 30% advance, 40% on review, 30% on delivery.</p>
-              <div class="text-center"><button class="buy-btn btn-theme" onclick="openContactWithSubject('Bronze plan enquiry: ₹2,999')">Choose Bronze</button></div>
+              <p class="price-note">Payment split: 30% advance, 40% on review, 30% on delivery.</p>
+            </div>
+            <div class="mt-3 d-flex gap-2">
+              <button class="btn buy-btn" onclick="WebpageWaleQuote.applyPricing({ name:'bronze', price:2999, includedPages:4 })">Choose Bronze</button>
+              <a class="btn btn-outline-primary" href="pages/bronze-details.html">More</a>
             </div>
           </div>
 
           <!-- Silver -->
-          <div class="col-lg-4 featured" data-aos="zoom-in" data-aos-delay="200">
-            <div class="pricing-item">
+          <div class="pricing-item">
+            <div>
+              <div class="badge" style="background:#ffe9e9;color:var(--brand-accent)">Best value</div>
               <h3>Silver</h3>
               <h4>₹4,999 <span style="font-size:.9rem;color:#b9c6d9">one-time</span></h4>
               <ul>
-                <li><i class="bi bi-check"></i> 6–8 pages + gallery</li>
-                <li><i class="bi bi-check"></i> Contact form & enquiry handling</li>
-                <li><i class="bi bi-check"></i> Image optimisation</li>
-                <li><i class="bi bi-check"></i> 1 month minor edits</li>
-                <li><i class="bi bi-check"></i> Domain included (setup help)</li>
+                <li><i class="bi bi-check2"></i> 6–8 pages + gallery</li>
+                <li><i class="bi bi-check2"></i> Contact form & enquiry handling</li>
+                <li><i class="bi bi-check2"></i> Image optimisation & 1 month edits</li>
               </ul>
-              <p class="price-note"><strong>Payment split:</strong> 30% advance, 40% on review, 30% on delivery.</p>
-              <div class="text-center"><button class="buy-btn btn-theme" onclick="openContactWithSubject('Silver plan enquiry: ₹4,999')">Choose Silver</button></div>
+              <p class="price-note">Payment split: 30% advance, 40% on review, 30% on delivery.</p>
+            </div>
+            <div class="mt-3 d-flex gap-2">
+              <button class="btn buy-btn" onclick="WebpageWaleQuote.applyPricing({ name:'silver', price:4999, includedPages:6 })">Choose Silver</button>
+              <a class="btn btn-outline-primary" href="pages/silver-details.html">More</a>
             </div>
           </div>
 
           <!-- Gold -->
-          <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
-            <div class="pricing-item">
-              <h3>Gold (Dynamic / Upgradable)</h3>
+          <div class="pricing-item">
+            <div>
+              <div class="badge">Advanced</div>
+              <h3>Gold</h3>
               <h4>₹11,999 <span style="font-size:.9rem;color:#b9c6d9">starting</span></h4>
               <ul>
-                <li><i class="bi bi-check"></i> Dynamic pages or small admin panel</li>
-                <li><i class="bi bi-check"></i> Form handling & enquiries stored</li>
-                <li><i class="bi bi-check"></i> Booking/payment options (optional)</li>
-                <li><i class="bi bi-check"></i> Priority support (30 days)</li>
-                <li><i class="bi bi-check"></i> Domain included</li>
+                <li><i class="bi bi-check2"></i> Dynamic pages / admin panel</li>
+                <li><i class="bi bi-check2"></i> Form handling with storage</li>
+                <li><i class="bi bi-check2"></i> Booking/payment options & priority support</li>
               </ul>
-              <p class="price-note"><strong>On-demand support:</strong> available as paid add-on after delivery (hourly or monthly retainer — quoted separately).</p>
-              <p class="price-note"><strong>Payment split:</strong> 40% advance, 30% on review, 30% on delivery.</p>
-              <div class="text-center"><button class="buy-btn btn-theme" onclick="openContactWithSubject('Gold plan enquiry: ₹11,999')">Contact for Gold</button></div>
+              <p class="price-note">Payment split: 40% advance, 30% on review, 30% on delivery.</p>
+            </div>
+            <div class="mt-3 d-flex gap-2">
+              <button class="btn buy-btn" onclick="WebpageWaleQuote.applyPricing({ name:'gold', price:11999, includedPages:6 })">Contact for Gold</button>
+              <a class="btn btn-outline-primary" href="pages/gold-details.html">More</a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- STATS about FormSubmit -->
+    <section id="formsubmit-stats" class="section">
+      <div class="container section-title">
+        <h2>Try It Now →</h2>
+        <p>FormSubmit has processed over <strong>2 million</strong> submissions from more than <strong>300,000</strong> registered websites.</p>
+        <p style="max-width:800px;margin:0 auto;color: color-mix(in srgb,#000, transparent 60%);">FormSubmit supports advanced hidden fields like <code>_replyto</code>, <code>_subject</code>, <code>_next</code>, <code>_cc</code>, <code>_template</code>, <code>_webhook</code> and more — we populate recommended ones automatically when sending quotes.</p>
+      </div>
+    </section>
 
-    <!-- FAQ -->
+    <!-- FAQ (extra questions added) -->
     <section id="faq" class="faq section">
-      <div class="container">
-        <div class="section-title" data-aos="fade-up">
-          <h2>Frequently Asked Questions</h2>
-          <p>Short answers — clear and useful for local business owners.</p>
-        </div>
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Frequently Asked Questions</h2>
+        <p>Short helpful answers for business owners in Jabalpur.</p>
+      </div>
 
+      <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
             <div class="faq-container">
               <div class="faq-item faq-active">
                 <h3>How long will my website be ready?<span class="faq-toggle">+</span></h3>
-                <div class="faq-content">
-                  <p>For a simple brochure site (4–6 pages) we usually finish in 2–5 days after you provide the content (text & images). More custom features take longer and we will share a timeline before starting.</p>
-                </div>
+                <div class="faq-content"><p>Typically 2–5 days for a 4–6 page brochure site after we receive content (text & images).</p></div>
               </div>
+
               <div class="faq-item">
                 <h3>Is domain registration included?<span class="faq-toggle">+</span></h3>
-                <div class="faq-content">
-                  <p>Bronze plan: domain not included. Silver and Gold: we include help to register and configure the domain (domain cost charged separately if needed).</p>
-                </div>
+                <div class="faq-content"><p>Bronze: domain not included. Silver & Gold: we help register and configure; domain cost extra.</p></div>
               </div>
+
               <div class="faq-item">
                 <h3>How do payments work?<span class="faq-toggle">+</span></h3>
-                <div class="faq-content">
-                  <p>We take payments in three parts: Advance (to start), Mid (on review), Final (on delivery). We accept UPI, bank transfer and online payment options.</p>
-                </div>
+                <div class="faq-content"><p>Payments are typically split into three parts: advance, mid-review, and final. We accept UPI, bank transfer and online payment options.</p></div>
               </div>
+
               <div class="faq-item">
-                <h3>Can I update the site later myself?<span class="faq-toggle">+</span></h3>
-                <div class="faq-content">
-                  <p>Most Bronze/Silver sites are static—small changes we can make quickly. For Gold (dynamic/admin) you can get an admin interface. We also offer paid update support.</p>
-                </div>
+                <h3>Can I update the site myself later?<span class="faq-toggle">+</span></h3>
+                <div class="faq-content"><p>Yes — Bronze/Silver are static; small changes we can do. Gold can include an admin panel for self-updates.</p></div>
               </div>
+
               <div class="faq-item">
-                <h3>Do you help with Google/online listing?<span class="faq-toggle">+</span></h3>
-                <div class="faq-content">
-                  <p>Yes — basic help with Google Business Profile / local listing is available as an add-on or included as part of Silver/Gold services depending on the package.</p>
-                </div>
+                <h3>Do you help with Google Business Profile?<span class="faq-toggle">+</span></h3>
+                <div class="faq-content"><p>Yes — basic help with Google Business listing is available as an add-on or included in Silver/Gold depending on plan.</p></div>
               </div>
+
               <div class="faq-item">
-                <h3>What content do you need from me?<span class="faq-toggle">+</span></h3>
-                <div class="faq-content">
-                  <p>Business name, address (we will use Vijay Nagar, Jabalpur if confirmed), phone/WhatsApp, 3–6 images (we can suggest stock photos), list of services and any logo you have.</p>
-                </div>
+                <h3>What support do you provide after delivery?<span class="faq-toggle">+</span></h3>
+                <div class="faq-content"><p>Minor static fixes ₹200, major static updates ₹500–700, dynamic updates ₹700–1000. We also offer yearly maintenance plans.</p></div>
               </div>
+
               <div class="faq-item">
-                <h3>Do you create logos or photos?<span class="faq-toggle">+</span></h3>
-                <div class="faq-content">
-                  <p>Yes — we can create a simple logo and suggest stock images for a small fee. Complex branding is quoted separately.</p>
-                </div>
+                <h3>Do you create logos and photos?<span class="faq-toggle">+</span></h3>
+                <div class="faq-content"><p>Yes — simple logos and stock image suggestions available for a small fee. Full branding quoted separately.</p></div>
               </div>
+
               <div class="faq-item">
                 <h3>Do I need to visit your office?<span class="faq-toggle">+</span></h3>
-                <div class="faq-content">
-                  <p>No — most work is remote. If you prefer an in-person meeting we can arrange one locally in Vijay Nagar, Jabalpur.</p>
-                </div>
+                <div class="faq-content"><p>No — most work is remote. Local in-person meetings can be arranged in Vijay Nagar, Jabalpur if needed.</p></div>
               </div>
+
             </div>
           </div>
         </div>
       </div>
     </section>
-
 
     <!-- Team -->
-    <section id="team" class="team section section-bg dark-background">
-      <div class="container">
-        <div class="section-title" data-aos="fade-up">
-          <h2>Team</h2>
-          <p>Small, local and focused on fast delivery.</p>
-        </div>
+    <!-- ===================== TEAM SECTION ===================== -->
+<section id="team" style="
+    padding:60px 0;
+    background:#0f0f0f;
+    color:#fff;
+    font-family: Inter, system-ui, sans-serif;
+">
+  <div style="max-width:1100px; margin:auto; padding:0 20px;">
 
-        <div class="row gy-4">
-          <div class="col-lg-6 col-md-6 d-flex align-items-stretch">
-            <div class="team-member w-100 text-center p-3">
-              <div class="member-img mb-2"><img src="assets/img/team/team-1.jpg" class="img-fluid rounded-circle" alt="Ayush"></div>
-              <div class="member-info">
-                <h4>Ayush</h4>
-                <span>Developer</span>
-                <p>Builds sites and implements custom features.</p>
-              </div>
-            </div>
-          </div>
+    <!-- Heading -->
+    <div style="margin-bottom:35px; text-align:center;">
+      <h2 style="font-size:32px; margin:0 0 10px 0; color:#fff;">
+        Meet Our Team
+      </h2>
+      <p style="color:rgba(255,255,255,0.65); font-size:15px; max-width:700px; margin:auto;">
+        A small, skilled team delivering fast, modern and affordable websites for Jabalpur businesses.
+      </p>
+    </div>
 
-          <div class="col-lg-6 col-md-6 d-flex align-items-stretch">
-            <div class="team-member w-100 text-center p-3">
-              <div class="member-img mb-2"><img src="assets/img/team/team-2.jpg" class="img-fluid rounded-circle" alt="Mridul Gupta"></div>
-              <div class="member-info">
-                <h4>Mridul Gupta</h4>
-                <span>Project Manager & SEO Specialist</span>
-                <p>Coordinates projects and optimises sites for local search.</p>
-              </div>
-            </div>
-          </div>
+    <!-- Team Grid -->
+    <div style="
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap:22px;
+    ">
+
+      <!-- Member 1 -->
+      <div style="
+        background:#141414;
+        border:1px solid rgba(255,255,255,0.05);
+        padding:18px;
+        border-radius:10px;
+        display:flex;
+        gap:14px;
+        align-items:flex-start;
+        box-shadow:0 8px 20px rgba(0,0,0,0.4);
+        transition:0.2s;
+      "
+      onmouseover="this.style.transform='translateY(-5px)'"
+      onmouseout="this.style.transform='translateY(0)'"
+      >
+        <img src="assets/img/team/Ayush.jpeg" alt="Ayush"
+          style="width:110px; height:110px; object-fit:cover; border-radius:6px;">
+
+        <div style="flex:1;">
+          <h3 style="margin:0; font-size:18px; color:#fff;">Ayush</h3>
+          <p style="margin:4px 0; color:#e03a3c; font-weight:700; font-size:14px;">
+            Developer
+          </p>
+          <p style="margin:0; color:rgba(255,255,255,0.65); font-size:14px;">
+            Expert in building responsive, fast-loading websites with modern UI & clean code.
+          </p>
         </div>
       </div>
-    </section>
 
-    <!-- Contact Section -->
+      <!-- Member 2 -->
+      <div style="
+        background:#141414;
+        border:1px solid rgba(255,255,255,0.05);
+        padding:18px;
+        border-radius:10px;
+        display:flex;
+        gap:14px;
+        align-items:flex-start;
+        box-shadow:0 8px 20px rgba(0,0,0,0.4);
+        transition:0.2s;
+      "
+      onmouseover="this.style.transform='translateY(-5px)'"
+      onmouseout="this.style.transform='translateY(0)'"
+      >
+        <img src="assets/img/team/Mridul.jpeg" alt="Mridul Gupta"
+          style="width:110px; height:110px; object-fit:cover; border-radius:6px;">
+
+        <div style="flex:1;">
+          <h3 style="margin:0; font-size:18px; color:#fff;">Mridul Gupta</h3>
+          <p style="margin:4px 0; color:#e03a3c; font-weight:700; font-size:14px;">
+            Project Manager & SEO Specialist
+          </p>
+          <p style="margin:0; color:rgba(255,255,255,0.65); font-size:14px;">
+            Handles planning, communication & SEO to help local businesses grow online.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ===================== END TEAM SECTION ===================== -->
+
+    <!-- Contact -->
     <section id="contact" class="contact section">
-
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Contact</h2>
         <p>Get a free quote or support — we serve businesses in Jabalpur and nearby areas.</p>
-      </div><!-- End Section Title -->
+      </div>
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-
         <div class="row gy-4">
           <div class="col-lg-6 ">
             <div class="row gy-4">
-
               <div class="col-lg-12">
                 <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="200">
-                  <i class="bi bi-geo-alt"></i>
-                  <h3>Address</h3>
-                  <p>Jabalpur, Madhya Pradesh, India</p>
+                  <i class="bi bi-geo-alt"></i><h3>Address</h3><p>Vijay Nagar, Jabalpur, Madhya Pradesh</p>
                 </div>
-              </div><!-- End Info Item -->
+              </div>
 
               <div class="col-md-6">
                 <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="300">
-                  <i class="bi bi-telephone"></i>
-                  <h3>Call / WhatsApp</h3>
-                  <p>+91 9XXXXXXXXX</p>
+                  <i class="bi bi-telephone"></i><h3>Call / WhatsApp</h3><p><a href="tel:+9192432500873">+91 92432500873</a></p>
                 </div>
-              </div><!-- End Info Item -->
+              </div>
 
               <div class="col-md-6">
                 <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="400">
-                  <i class="bi bi-envelope"></i>
-                  <h3>Email</h3>
-                  <p>hello@webpagewale.in</p>
+                  <i class="bi bi-envelope"></i><h3>Email</h3><p><a href="mailto:contact@webpagewale.in">contact@webpagewale.in</a><br><a href="mailto:webpagewale@gmail.com">webpagewale@gmail.com</a></p>
                 </div>
-              </div><!-- End Info Item -->
+              </div>
 
             </div>
           </div>
 
           <div class="col-lg-6">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="500">
-              <div class="row gy-4">
+            <div class="mb-3">
+              <label class="form-check-label d-flex align-items-center">
+                <input id="generate-quote-checkbox" class="form-check-input me-2" type="checkbox" /> I want to generate a quote
+              </label>
+            </div>
 
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                </div>
+            <!-- Calculator area injected by JS -->
+            <div id="quote-calculator" aria-hidden="true" role="region"></div>
 
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                </div>
+            <!-- Visible form (FormSubmit) - required name, email and submit present. message textarea included -->
+            <form id="contact-simple-form" action="https://formsubmit.co/webpagewale@gmail.com" method="POST" class="formsubmit-form" novalidate>
+              <input type="text" name="name" placeholder="Your Name" required>
+              <input type="email" name="email" placeholder="Your Email" required>
+              <textarea name="message" placeholder="Briefly describe your requirement" required></textarea>
 
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject (e.g., Clinic website)" required="">
-                </div>
+              <!-- Hidden recommended FormSubmit fields -->
+              <input type="hidden" name="_next" value="https://webpagewale.in/thanks.html">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_cc" value="contact@webpagewale.in">
 
-                <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="4" placeholder="Briefly describe your requirement" required=""></textarea>
-                </div>
+              <button type="submit" class="btn">Send</button>
 
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
+              <div class="form-send-success" id="fs-success">Your message has been sent. Thank you!</div>
+              <div class="form-send-error" id="fs-error">Something went wrong. Please try again later.</div>
 
-                  <button type="submit">Send Message</button>
-                </div>
-
-              </div>
+              <div class="small-note">We will email you a reply. If you requested a quote, the calculator details will be included.</div>
             </form>
-          </div><!-- End Contact Form -->
-
+          </div>
         </div>
-
       </div>
-
-    </section><!-- /Contact Section -->
+    </section>
 
   </main>
 
+  <!-- Footer -->
   <footer id="footer" class="footer dark-background">
-
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">WebpageWale</span>
-          </a>
+          <a href="index.html" class="logo d-flex align-items-center"><span class="sitename">WebpageWale</span></a>
           <div class="footer-contact pt-3">
-            <p>Jabalpur, Madhya Pradesh</p>
-            <p class="mt-3"><strong>Phone/WhatsApp:</strong> <span>+91 9XXXXXXXXX</span></p>
-            <p><strong>Email:</strong> <span>hello@webpagewale.in</span></p>
-          </div>
-          <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
+            <p>Vijay Nagar, Jabalpur</p>
+            <p class="mt-3"><strong>Phone/WhatsApp:</strong> <span><a href="tel:+9192432500873">+91 92432500873</a></span></p>
+            <p><strong>Email:</strong> <span><a href="mailto:contact@webpagewale.in">contact@webpagewale.in</a></span></p>
           </div>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Useful Links</h4>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="about.html">About us</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
+          <ul><li><a href="#">Home</a></li><li><a href="about.html">About us</a></li><li><a href="services.html">Services</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li></ul>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Our Services</h4>
-          <ul>
-            <li><a href="services.html">Web Design</a></li>
-            <li><a href="services.html">Web Development</a></li>
-            <li><a href="services.html">E-commerce</a></li>
-            <li><a href="services.html">Maintenance</a></li>
-            <li><a href="services.html">Local Support</a></li>
-          </ul>
+          <ul><li><a href="services.html">Web Design</a></li><li><a href="services.html">Web Development</a></li><li><a href="services.html">E-commerce</a></li><li><a href="services.html">Maintenance</a></li></ul>
         </div>
 
         <div class="col-lg-4 col-md-12 footer-newsletter">
@@ -764,35 +739,28 @@
             <div class="sent-message">Your subscription request has been sent. Thank you!</div>
           </form>
         </div>
-
       </div>
     </div>
 
     <div class="container copyright text-center mt-4">
       <p>© <span>Copyright</span> <strong class="px-1 sitename">WebpageWale</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        Designed by <a href="#">WebpageWale</a>
-      </div>
+      <div class="credits">Designed by <a href="#">WebpageWale</a></div>
     </div>
-
   </footer>
 
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Scroll to top"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <!-- Vendor JS (defer) -->
+  <script defer src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script defer src="assets/vendor/aos/aos.js"></script>
+  <script defer src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script defer src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script defer src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script defer src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script defer src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-
+  <!-- Main JS (updated) -->
+  <script src="assets/js/main.js" defer></script>
 </body>
-
 </html>
